@@ -121,6 +121,9 @@ namely a demo workflow that has simulation and machine-learning:
 More documentation on the example workflows can be found under
 'Running the Examples'.
 
+# Authors
+Many thanks to Merlin's [contributors](https://github.com/LLNL/merlin/graphs/contributors).
+
 
 # Running the Examples
 Example workflows can be found in the `workflows/` directory.
