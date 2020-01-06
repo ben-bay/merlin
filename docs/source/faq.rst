@@ -237,6 +237,26 @@ You might also have rogue workers. To find out, try ``merlin query-workers``.
 Where do tasks get run?
 ~~~~~~~~~~~~~~~~~~~~~~~
 
+How do I auto-release comupte nodes when a workflow is complete?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+You might try adding a final step like this:
+
+..code:: yaml
+
+    - description: Kill any active workers and cancel all of my Merlin batch jobs
+      name: kill
+      run:
+        cmd: |
+            # email me that we're finishing
+            echo "All done with simulation run in $(MERLIN_WORKSPACE)" | mail -s "Merlin thing finished" my_email@address.com
+            # kill workers
+            merlin stop-workers
+            # cancel your depending jobs
+            scancel -u $USER --name Merlin --state=PENDING
+            # cancel your active jobs
+            scancel -u $USER --name Merlin --state=RUNNING
+        depends: [last_real_step]
+
 Where can I learn more about merlin?
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Check out our (paper)[https://arxiv.org/abs/1912.02892] on arXiv.
