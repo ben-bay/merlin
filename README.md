@@ -1,5 +1,9 @@
 ![Merlin](https://raw.githubusercontent.com/LLNL/merlin/master/docs/images/merlin.png)
 
+- status of third-party dependencies: ![dependencies](https://img.shields.io/badge/dependencies-out%20of%20date-orange)
+- [SemVer](https://semver.org/) version observance: ![semver](https://img.shields.io/badge/semver-2.0.0-blue)
+- Python package downloads: ![downloads](https://img.shields.io/badge/downloads-13k%2Fmonth-brightgreen)
+
 ## A brief introduction to Merlin
 Merlin is a tool for running machine learning based workflows. The goal of
 Merlin is to make it easy to build, run, and process the kinds of large
